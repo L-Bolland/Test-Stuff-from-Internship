@@ -56,7 +56,7 @@
         }
         public void remove(IPriced thing)
         {
-            boxContents.Remove(thing);   
+            boxContents.Remove(thing);
         }
         public ushort getPrice()
         {
@@ -79,7 +79,11 @@
         }
     }
 
-    
+    public class MenuSelection
+    {
+
+    }
+
     internal class Program
     {
         static void Main(string[] args)
@@ -104,7 +108,8 @@
                 {
                     Console.WriteLine("Invalid selection. Please try again.\n");
                 }
-                switch (choice){
+                switch (choice)
+                {
                     case '1':
                         Console.WriteLine(box.getPrice());
                         break;
@@ -140,11 +145,6 @@
                             }
                             bool selectionValue = false;
                             char selectionChar = '0';
-                            while ((selectionChar != 'Y') || (selectionChar != 'y') || (selectionChar != 'N') || (selectionChar != 'n'))
-                            {
-                                Console.WriteLine("Do you wish to add something else? (Y/N)");
-                                selectionChar = Console.ReadKey().KeyChar;
-                            }
                         }
                         break;
                     default:
