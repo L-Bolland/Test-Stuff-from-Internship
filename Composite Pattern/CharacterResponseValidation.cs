@@ -67,7 +67,7 @@ namespace Composite_Pattern
 
         public bool CheckIfNumber(char character)
         {
-            if ((character! < 30) || (character! > 39)
+            if ((character! < 30) || (character! > 39))
                 {
                 return true;
             }
