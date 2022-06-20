@@ -41,6 +41,7 @@ namespace Composite_Pattern
             }
             return character;
         }
+
         public bool ResponseValidityChecker(char response)
         {
             if (DecapitalizeCharacter(response) == 'y' || DecapitalizeCharacter(response) == 'n')
@@ -63,6 +64,7 @@ namespace Composite_Pattern
             Console.WriteLine("Bool Conversion Error.");
             return false;
         }
+
         public bool CheckIfNumber(char character)
         {
             if ((character! < 30) || (character! > 39)
