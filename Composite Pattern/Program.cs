@@ -54,10 +54,12 @@
         {
             boxContents.Add(thing);
         }
+
         public void remove(IPriced thing)
         {
             boxContents.Remove(thing);
         }
+
         public ushort getPrice()
         {
             if (boxContents != null)
@@ -113,33 +115,32 @@
                         while (manipulate == true)
                         {
                             choice = '0';
-                            manipulate = true;
-                            // copypasted segment, create function
-                            while ((choice < '1') || (choice > '2'))
-                            {
-                                Console.WriteLine("What do you wish to do?\n" +
-                                    "Press 1 to add a Box\n" +
-                                    "Press 2 to add a Product\n");
-                                choice = Console.ReadKey().KeyChar;
-                                Console.WriteLine("\n");
-                            }
-                            if (choice < '1' || choice > '2')
-                            {
-                                Console.WriteLine("Invalid selection. Please try again.\n");
-                            }
-                            switch (choice)
-                            {
-                                case '1':
-                                    box.add(new Box());
-                                    Console.WriteLine("Added a Box");
-                                    break;
-                                case '2':
-                                    box.add(new Product());
-                                    Console.WriteLine("Added a Product");
-                                    break;
-                            }
-                            bool selectionValue = false;
-                            char selectionChar = '0';
+                                // copypasted segment, create function
+                                while (new CharacterResponseValidation().CheckIfNumber(choice) == true && ((choice < '1') || (choice > '2')))
+                                {
+                                    Console.WriteLine("What do you wish to do?\n" +
+                                        "Press 1 to add a Box\n" +
+                                        "Press 2 to add a Product\n");
+                                    choice = Console.ReadKey().KeyChar;
+                                    Console.WriteLine("\n");
+                                }
+                                if (new CharacterResponseValidation().CheckIfNumber(choice) != true || (choice > '2'))
+                                {
+                                    Console.WriteLine("Invalid selection. Please try again.\n");
+                                }
+                                switch (choice)
+                                {
+                                    case '1':
+                                        box.add(new Box());
+                                        Console.WriteLine("Added a Box");
+                                        break;
+                                    case '2':
+                                        box.add(new Product());
+                                        Console.WriteLine("Added a Product");
+                                        break;
+                                }
+                                bool selectionValue = false;
+                                char selectionChar = '0';
                         }
                         break;
                     default:
