@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Composite_Pattern
 {
-    public class BooleanResponseConversion
+    public class CharacterResponseValidation
     {
         public bool CheckIfLetter(char maybeLetter)
         {
@@ -61,6 +61,14 @@ namespace Composite_Pattern
                 return false;
             }
             Console.WriteLine("Bool Conversion Error.");
+            return false;
+        }
+        public bool CheckIfNumber(char character)
+        {
+            if ((character! < 30) || (character! > 39)
+                {
+                return true;
+            }
             return false;
         }
     }

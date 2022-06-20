@@ -79,11 +79,6 @@
         }
     }
 
-    public class MenuSelection
-    {
-
-    }
-
     internal class Program
     {
         static void Main(string[] args)
