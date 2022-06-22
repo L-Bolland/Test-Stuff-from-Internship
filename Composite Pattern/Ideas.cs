@@ -55,6 +55,7 @@ namespace Composite_Pattern
             //usw
             int backToMainMenu; //how?
         }
+        // This looks an awful lot like goto-commands which are generally frowned upon and should not be used.
     }
     internal class Idea2
     {
@@ -90,5 +91,6 @@ namespace Composite_Pattern
             Option2();
             //usw
         }
+        // By making everything a function, things can easily get overcomplicated and more complex than they need to be.
     }
 }
