@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Composite_Pattern
 {
-    internal class Examples
+    // looking at ideas how to structure the code
+    internal class Example1
     {
-        // looking at ideas how to structure the code
-        /*Example1:*/void MainMenu()
+        void MainMenu()
         {
             int option1;
             int option2;
@@ -22,6 +22,41 @@ namespace Composite_Pattern
             int option2;
             //usw
             int backToMainMenu; //how?
+        }
+    }
+    internal class Example2
+    {
+        void Option1()
+        {
+            bool backToMainMenu = false;
+            Option11();
+            //Option12();
+            //usw
+            backToMainMenu = true; //question remains: how?
+        }
+        void Option2()
+        {
+            bool backToMainMenu = false;
+            Option21();
+            //Option22();
+            //usw
+            backToMainMenu = true;
+        }
+        void Option11()
+        {
+            //stuff
+        }
+        void Option21()
+        {
+            //stuff
+        }
+        void MainMenu()
+        {
+            int arg1 = 0;
+            int arg2 = 0;
+            Option1();
+            Option2();
+            //usw
         }
     }
 }
