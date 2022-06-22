@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Composite_Pattern
 {
     // looking at ideas how to structure the code
-    internal class Example1
+    internal class Idea1
     {
         void MainMenu()
         {
@@ -24,7 +24,7 @@ namespace Composite_Pattern
             int backToMainMenu; //how?
         }
     }
-    internal class Example2
+    internal class Idea2
     {
         void Option1()
         {
