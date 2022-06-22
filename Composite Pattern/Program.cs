@@ -1,26 +1,5 @@
 ﻿namespace Composite_Pattern
 {
-
-    //ICalculateable 
-    //+ getPrice() : number
-
-    //Kiste : ICalculateable
-    //++ calculateableThings: ICalculateable[]
-    //+ getPrice() : number
-    //   ruft getPrice auf alle elemente von calculateableThings auf und addiert diese(reduce) calculateableThings.reduce(acc, curr => acc+curr.getPrice(), 0)
-    //+ add(element: ICalculateable) : void
-
-    //Kiste kann Schuhe oder weitere Kisten enthaten
-
-    //Schuh : ICalculateable
-    //+ getPrice() : number
-
-    //         K<-- was ist der Preis deines Inhalts
-    //       /   \
-    //      K     S
-    //    /   \
-    //   S     S
-
     public interface IPriced
     {
         public ushort getPrice();
