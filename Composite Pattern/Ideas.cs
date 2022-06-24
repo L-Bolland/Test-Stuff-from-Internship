@@ -38,8 +38,8 @@ using System.Threading.Tasks;
 
 namespace Composite_Pattern
 {
-    // looking at ideas how to structure the code
-    internal class Idea1
+    // Problem1: how should the code be structured?
+    internal class Idea11
     {
         void MainMenu()
         {
@@ -57,7 +57,7 @@ namespace Composite_Pattern
         }
         // This looks an awful lot like goto-commands which are generally frowned upon and should not be used.
     }
-    internal class Idea2
+    internal class Idea12
     {
         void Option1()
         {
@@ -94,3 +94,170 @@ namespace Composite_Pattern
         // By making everything a function, things can easily get overcomplicated and more complex than they need to be.
     }
 }
+
+// Examples for a possible solution in TypeScript. Read, Understand, Replicate in C#.
+
+// Example 1:
+//
+//import readline from "readline";
+//const rl = readline.createInterface({
+//    input: process.stdin, //or fileStream 
+//    output: process.stdout
+//});
+//interface IView
+//{
+//    type: string;
+//    render() : Promise<void>;
+//    setRouter(router: Router) : void;
+//}
+//class HomeView implements IView
+//{
+//    type = "HomeView";
+//    router: Router
+//    setRouter(router: Router) {
+//        this.router = router;
+//    }
+//    async render() {
+//        console.log("[1] CoffeeView");
+//        console.log("[2] FruitView");
+//        for await(const line of rl) {
+//            switch (line)
+//            {
+//                case "1":
+//                    // business logic
+//                    this.router.route("CoffeeView")
+//                    break;
+//                case "2":
+//                    // business logic 
+//                    this.router.route("FruitView")
+//                    break;
+//                default:
+//                    break;
+//            }
+//        }
+//    }
+//}
+//class CoffeeView implements IView
+//{
+//    type = "CoffeeView";
+//    router: Router
+//    selectedCoffee: string;
+//    setRouter(router: Router) {
+//        this.router = router;
+//    }
+//    async render() {
+//        console.log("[1] Coffee");
+//        console.log("[2] Latte Macchiato");
+//        console.log("[0] Zurück");
+//        for await(const line of rl) {
+//            switch (line)
+//            {
+//                case "1":
+//                    this.selectedCoffee = "Coffee";
+//                    break;
+//                case "2":
+//                    this.selectedCoffee = "Latte Macchiato";
+//                    break;
+//                case "0":
+//                    this.router.route("HomeView")
+//                    break;
+//                default:
+//                    break;
+//            }
+//        }
+//    }
+//}
+//class FruitView implements IView
+//{
+//    type = "FruitView";
+//    router: Router
+//    setRouter(router: Router) {
+//        this.router = router;
+//    }
+//    async render() {
+//    }
+//}
+//class ErrorView implements IView
+//{
+//    type = "ErrorView";
+//    router: Router
+//    setRouter(router: Router) {
+//        this.router = router;
+//    }
+//    async render() {
+//    }
+//}
+//class Router
+//{
+//    views: IView[];
+//    curr: IView;
+//    constructor(view: IView, views: IView[])
+//    {
+//        this.curr = view;
+//        this.views = views;
+//    }
+//    route(viewName: string)
+//    {
+//        const nextView = this.views.find(view => view.type === viewName);
+//        this.curr = nextView ? nextView : new ErrorView();
+//    }
+//}
+//const home = new HomeView();
+//const coffee = new CoffeeView();
+//const fruit = new FruitView();
+//const router = new Router(home, [home, coffee, fruit]);
+//home.setRouter(router);
+//coffee.setRouter(router);
+//fruit.setRouter(router);
+//while (true)
+//{
+//    await router.curr.render();
+//    // nothing to do -> repeat
+//}
+
+// Example 2:
+//
+//                                                                                        ----> Backend1
+//  User -> Input -> Frontend Anwendung --------------> Internet ----------> ReverseProxy ----> Backend2
+//                                                                                        ----> Backend3
+//interface IBackend
+//{
+//    execute() : void;
+//}
+//const useRoundRobin = (proxy: Proxy) =>  {
+//    proxy.last = proxy.last + 1  % proxy.backends.length // setze rest der division
+//}
+//class Proxy implements IBackend
+//{
+//    backends: IBackend [];
+//    strategy: (proxy: Proxy) => void;
+//    last: number = 0;
+//    constructor(backends : IBackend [], strategy: (proxy: Proxy) => void) {
+//        this.backends = backends;
+//        this.strategy = strategy;
+//    }
+//    public execute()
+//{
+//    this.backends[this.last].execute()
+//        this.strategy(this);
+//}
+//}
+//class Backend implements IBackend
+//{
+//    id: string;
+//    constructor(id: string) {
+//        this.id = id;
+//    }
+//    public execute(): void
+//{
+//    console.log(`I bimz Backend ${ this.id}`)
+//    }
+//}
+//const backend1 = new Backend("1");
+//const backend2 = new Backend("2");
+//const backend3 = new Backend("3");
+//const ReverseProxy = new Proxy([backend1, backend2, backend3], useRoundRobin)
+//ReverseProxy.execute();
+//ReverseProxy.execute();
+//ReverseProxy.execute();
+//ReverseProxy.execute();
